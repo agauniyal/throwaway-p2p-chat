@@ -4,7 +4,9 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const nanoid = require('nanoid');
 
-server.listen(8080);
+const PORT = process.env.PORT || 8080;
+
+server.listen(PORT);
 
 app.use(express.static('dist'));
 
