@@ -1,0 +1,37 @@
+{
+  "name": "throwaway-p2p-chat",
+  "version": "1.0.0",
+  "description": "quick P2P chat channel",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agauniyal/throwaway-p2p-chat.git"
+  },
+  "author": "agauniyal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agauniyal/throwaway-p2p-chat/issues"
+  },
+  "homepage": "https://github.com/agauniyal/throwaway-p2p-chat#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nanoid": "^1.0.7",
+    "normalize.css": "^8.0.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "simple-peer": "^9.1.2",
+    "socket.io": "^2.1.1",
+    "sweetalert2": "^7.25.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-runtime": "^6.26.0"
+  }
+}

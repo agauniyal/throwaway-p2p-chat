@@ -1,0 +1,114 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: white;
+  box-sizing: border-box;
+  background: #f2709c;
+  background: linear-gradient(to right, #ff9472, #f2709c);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#app {
+  display: flex;
+  height: 100%;
+}
+
+#dashboard {
+  padding: 20px 50px;
+  height: 100%;
+  width: 90%;
+  font-size: 18px;
+}
+
+#dashboard h1 {
+  font-family: 'Satisfy', cursive;
+  font-size: 50px;
+  text-shadow: 2px 2px 1px #db5b34;
+}
+
+#dashboard p {
+  font-family: 'Neucha', cursive;
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  text-shadow: 0 1px 0 #db5b34bf;
+  border: #db5b34 dotted 2px;
+  padding: 15px 10px;
+}
+
+#chat {
+  margin: 20px 50px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#chat ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#chat ul li {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgba(1, 1, 1, 0.6);
+  width: 60%;
+  color: #fff;
+  word-wrap: break-word;
+  border-radius: 2px;
+  font-family: 'Neucha', cursive;
+}
+
+.right-message {
+  align-self: flex-end;
+  background-color: rgba(1, 1, 1, 0.5);
+}
+
+#chat textarea {
+  padding: 10px 15px 0 15px;
+  margin: 10px 0;
+  background: #db5b34bf;
+  border: none;
+  border-bottom: 4px solid #db5b34;
+  color: #fff;
+  resize: none;
+  outline: none;
+  font-family: 'Neucha', cursive;
+  font-size: 20px;
+}
+
+#dashboard button {
+  padding: 10px 20px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #db5b34;
+  text-decoration: none;
+  background-color: #db5b34bf;
+  border-bottom: 5px solid #db5b34;
+  font-family: 'Satisfy', cursive;
+  transition: all 0.1s;
+}
+
+#dashboard button:active {
+  transform: translate(0px, 5px);
+  border-bottom: 1px solid #db5b34bf;
+}
