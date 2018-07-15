@@ -2,8 +2,12 @@
   "name": "throwaway-p2p-chat",
   "version": "1.0.0",
   "description": "quick P2P chat channel",
+  "main": "app.js",
+  "engines": {
+    "node": "10"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
