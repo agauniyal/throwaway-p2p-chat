@@ -87,6 +87,8 @@ class Container extends Component {
   };
 
   startNewChat = () => {
+    if (this.state.connectedP2P) return;
+
     this.setState(
       {
         ...this.state,
@@ -100,13 +102,42 @@ class Container extends Component {
       async () => {
         const signal = await this.state.peer.generateSignal();
         const url = await this.state.peer.getUrl(signal);
-        swal('One time unique code', url, 'info');
+        await swal
+          .mixin({
+            confirmButtonText: 'Next &rarr;',
+            showCancelButton: false,
+            progressSteps: ['1', '2']
+          })
+          .queue([
+            {
+              title: 'One time unique code?',
+              text: url
+            },
+            {
+              type: 'info',
+              title: 'Waiting for peer',
+              text:
+                'Once the other peer confirms this code, we will notify you so you can send your messages',
+              timer: 3000,
+              showConfirmButton: false
+            }
+          ]);
         await this.state.peer.connectToPeer();
+        swal({
+          type: 'success',
+          title: 'P2P connection established!',
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 5000
+        });
       }
     );
   };
 
   joinExistingChannel = () => {
+    if (this.state.connectedP2P) return;
+
     this.setState(
       {
         ...this.state,
@@ -129,6 +160,14 @@ class Container extends Component {
         const otherSignal = await this.state.peer.getInitiatorSignal(url);
         const signal = await this.state.peer.generateSignal(otherSignal);
         await this.state.peer.connectToPeer(signal, url);
+        swal({
+          type: 'success',
+          title: 'P2P connection established!',
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 5000
+        });
       }
     );
   };

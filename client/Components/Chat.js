@@ -24,8 +24,10 @@ class Chat extends React.Component {
   onEnterPress = e => {
     if (e.keyCode == 13 && e.shiftKey == false) {
       e.preventDefault();
-      this.props.onSend(this.state.inputValue);
-      this.setState({ inputValue: '' });
+      if (this.state.inputValue.trim() != '') {
+        this.props.onSend(this.state.inputValue);
+        this.setState({ inputValue: '' });
+      }
     }
   };
 
