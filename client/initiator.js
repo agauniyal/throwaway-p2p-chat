@@ -31,10 +31,6 @@ export default class Initiator {
       await this.onPeerConnect(false);
       swal('Connection Terminated', 'P2P client closed connection', 'warning');
     });
-    this.peer.on('connect', async () => {
-      console.info('Initiator connected to peer');
-      await this.onPeerConnect(true);
-    });
     this.peer.on('data', data => this.onMessage(data.toString()));
     this.peer.on('error', err => {
       swal(
@@ -69,8 +65,12 @@ export default class Initiator {
   connectToPeer = () => {
     return new Promise((resolve, reject) => {
       this.socket.on('getReceiverSignal', otherSignal => {
+        this.peer.on('connect', async () => {
+          console.info('Initiator connected to peer');
+          await this.onPeerConnect(true);
+          resolve();
+        });
         this.peer.signal(otherSignal);
-        resolve();
       });
     });
   };
